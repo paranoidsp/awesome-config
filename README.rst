@@ -1,0 +1,1 @@
+/home/paranoidsp/git/awesome-copycats/README.rst
