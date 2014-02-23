@@ -639,6 +639,7 @@ globalkeys = awful.util.table.join(
         --function ()
             --awful.client.focus.history.previous()
             --if client.focus then
+            --
                 --client.focus:raise()
             --end
         --end),
