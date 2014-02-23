@@ -29,10 +29,10 @@ theme.tasklist_bg_normal            = "#222222"
 theme.tasklist_fg_focus             = "#4CB7DB"
 theme.tasklist_bg_focus             = "png:" .. theme.icon_dir .. "/bg_focus_noline.png"
 theme.textbox_widget_margin_top     = 1
-theme.awful_widget_height           = 14
+theme.awful_widget_height           = 10
 theme.awful_widget_margin_top       = 2
-theme.menu_height                   = "15"
-theme.menu_width                    = "400"
+theme.menu_height                   = "12"
+theme.menu_width                    = "300"
 
 theme.widget_bg                     = theme.icon_dir .. "/bg_focus_noline.png"
 theme.awesome_icon                  = theme.icon_dir .. "/awesome_icon.png"
