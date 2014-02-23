@@ -30,7 +30,7 @@ theme.tasklist_fg_focus             = "#4CB7DB"
 theme.tasklist_bg_focus             = "png:" .. theme.icon_dir .. "/bg_focus_noline.png"
 theme.textbox_widget_margin_top     = 1
 theme.awful_widget_height           = 10
-theme.awful_widget_margin_top       = 2
+theme.awful_widget_margin_top       = 1
 theme.menu_height                   = "12"
 theme.menu_width                    = "300"
 

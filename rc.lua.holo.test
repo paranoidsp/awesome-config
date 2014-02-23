@@ -1,7 +1,6 @@
 --[[
                                 
-     Holo Awesome WM config 2.0 
-     github.com/copycat-killer  
+     Holo Awesome WM config 2.0 github.com/copycat-killer  
                                 
 --]]
 
@@ -117,9 +116,9 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " WEB ☢", " TERMINAL☢ ", " FILES ", " OTHER " },
+   names = { " WEB "," Editor " , " TERMINAL ", " FILES ", " OTHER " },
              
-   layout = { layouts[1], layouts[3], layouts[2], layouts[4] }
+   layout = { layouts[1], layouts[3] ,  layouts[3], layouts[2], layouts[4] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -298,8 +297,8 @@ batwidget = lain.widgets.bat({
 })
 -- Battery progressbar
 batttwidget = awful.widget.progressbar()
-batttwidget:set_width(20)
-batttwidget:set_height(3)
+batttwidget:set_width(10)
+batttwidget:set_height(1)
 --batttwidget:set_vertical(true)
 --batttwidget:set_background_color(beautiful.widget_background)
 batttwidget:set_background_color("#00bfff")
@@ -498,7 +497,21 @@ for s = 1, screen.count() do
     --right_layout:add(mailwidget)
     right_layout:add(batwidget)
     right_layout:add(spr_right)
-    right_layout:add(batttwidget)
+    right_layout:add(netdown_icon)
+    right_layout:add(networkwidget)
+    right_layout:add(netup_icon)
+    right_layout:add(bottom_bar)
+    right_layout:add(cpu_icon)
+    right_layout:add(cpuwidget)
+    right_layout:add(bottom_bar)
+    --right_layout:add(temp_icon)
+    right_layout:add(tempwidget)
+    right_layout:add(bottom_bar)
+    --right_layout:add(mem_icon)
+    right_layout:add(memwidget)
+    right_layout:add(bottom_bar)
+    --right_layout:add(spr_right)
+    --right_layout:add(batttwidget)
     right_layout:add(spr_right)
     right_layout:add(prev_icon)
     right_layout:add(next_icon)
@@ -529,19 +542,19 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the bottom right
     bottom_right_layout = wibox.layout.fixed.horizontal()
     bottom_right_layout:add(spr_bottom_right)
-    bottom_right_layout:add(netdown_icon)
-    bottom_right_layout:add(networkwidget)
-    bottom_right_layout:add(netup_icon)
-    bottom_right_layout:add(bottom_bar)
-    bottom_right_layout:add(cpu_icon)
-    bottom_right_layout:add(cpuwidget)
-    bottom_right_layout:add(bottom_bar)
-    bottom_right_layout:add(temp_icon)
-    bottom_right_layout:add(tempwidget)
-    bottom_right_layout:add(bottom_bar)
-    bottom_right_layout:add(mem_icon)
-    bottom_right_layout:add(memwidget)
-    bottom_right_layout:add(bottom_bar)
+    --bottom_right_layout:add(netdown_icon)
+    --bottom_right_layout:add(networkwidget)
+    --bottom_right_layout:add(netup_icon)
+    --bottom_right_layout:add(bottom_bar)
+    --bottom_right_layout:add(cpu_icon)
+    --bottom_right_layout:add(cpuwidget)
+    --bottom_right_layout:add(bottom_bar)
+    ----bottom_right_layout:add(temp_icon)
+    --bottom_right_layout:add(tempwidget)
+    --bottom_right_layout:add(bottom_bar)
+    ----bottom_right_layout:add(mem_icon)
+    --bottom_right_layout:add(memwidget)
+    --bottom_right_layout:add(bottom_bar)
     bottom_right_layout:add(calendar_icon)
     bottom_right_layout:add(calendarwidget)
     bottom_right_layout:add(bottom_bar)
