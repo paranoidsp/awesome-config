@@ -15,6 +15,11 @@ local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
+local menubar = require("menubar")
+require('freedesktop.utils')
+require('freedesktop.menu')
+vicious = require("vicious")
+local wi = require("wi")
 -- }}}
 
 -- {{{ Naughty presets
@@ -81,7 +86,7 @@ run_once("mpd")
 --os.setlocale(os.getenv("LANG"))
 
 -- beautiful init
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/holo/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/holo-new/theme.lua")
 
 -- common
 modkey     = "Mod4"
@@ -281,7 +286,7 @@ end)))
 batwidget = lain.widgets.bat({
     settings = function()
         bat_header = " Bat "
-        bat_p      = bat_now.perc .. " "
+        bat_p      = bat_now.perc .. "% (" .. bat_now.time .. ") "
 
         if bat_now.status == "Not present" then
             bat_header = ""
@@ -291,6 +296,24 @@ batwidget = lain.widgets.bat({
         widget:set_markup(markup(blue, bat_header) .. bat_p)
     end
 })
+-- Battery progressbar
+batttwidget = awful.widget.progressbar()
+batttwidget:set_width(30)
+batttwidget:set_height(10)
+--batttwidget:set_vertical(true)
+--batttwidget:set_background_color(beautiful.widget_background)
+batttwidget:set_background_color("#00bfff")
+batttwidget:set_border_color(nil)
+batttwidget:set_color("#000000")
+vicious.register(batttwidget, vicious.widgets.bat,
+    function (widget, args)
+        if(args[2] > 40) then
+        batttwidget:set_color("#000000")
+        else
+        batttwidget:set_color("#000000")
+        end
+        return 100 - args[2]
+    end, 5, "BAT0")
 
 -- ALSA volume bar
 myvolumebar = lain.widgets.alsabar({
@@ -318,7 +341,7 @@ volumewidget:set_bgimage(beautiful.widget_bg)
 -- CPU
 cpu_widget = lain.widgets.cpu({
     settings = function()
-        widget:set_markup(space3 .. "CPU " .. cpu_now.usage
+        widget:set_markup(space3 .. cpu_now.usage
                           .. "%" .. markup.font("Tamsyn 5", " "))
     end
 })
@@ -328,10 +351,22 @@ cpuwidget:set_bgimage(beautiful.widget_bg)
 cpu_icon = wibox.widget.imagebox()
 cpu_icon:set_image(beautiful.cpu)
 
--- MEM
-memwidget = lain.widgets.mem({
+-- Coretemp
+temp_widget = lain.widgets.temp({
     settings = function()
-        widget:set_text(" " .. mem_now.used .. "MB ")
+        widget:set_markup(space3 .. coretemp_now .. "°C ")
+    end
+})
+tempwidget = wibox.widget.background()
+tempwidget:set_widget(temp_widget)
+tempwidget:set_bgimage(beautiful.widget_bg)
+temp_icon = wibox.widget.imagebox()
+temp_icon:set_image(beautiful.temp)
+
+-- MEM
+mem_widget = lain.widgets.mem({
+    settings = function()
+        widget:set_markup(space3 .. mem_now.used .. "MB ")
     end
 })
 memwidget = wibox.widget.background()
@@ -463,6 +498,8 @@ for s = 1, screen.count() do
     --right_layout:add(mailwidget)
     right_layout:add(batwidget)
     right_layout:add(spr_right)
+    right_layout:add(battwidget)
+    right_layout:add(spr_right)
     right_layout:add(prev_icon)
     right_layout:add(next_icon)
     right_layout:add(stop_icon)
@@ -496,10 +533,10 @@ for s = 1, screen.count() do
     bottom_right_layout:add(networkwidget)
     bottom_right_layout:add(netup_icon)
     bottom_right_layout:add(bottom_bar)
-    --bottom_right_layout:add(cpu_icon)
-    --bottom_right_layout:add(cpuwidget)
-    bottom_right_layout:add(mem_icon)
-    bottom_right_layout:add(memwidget)
+    bottom_right_layout:add(cpu_icon)
+    bottom_right_layout:add(cpuwidget)
+    --bottom_right_layout:add(mem_icon)
+    --bottom_right_layout:add(memwidget)
     bottom_right_layout:add(bottom_bar)
     bottom_right_layout:add(mem_icon)
     bottom_right_layout:add(memwidget)
