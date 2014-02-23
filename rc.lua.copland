@@ -59,7 +59,7 @@ run_once("compton")
 os.setlocale(os.getenv("LANG"))
 
 -- beautiful init
-beautiful.init(awful.util.getdir("config") .. "/themes/copland/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/copland/theme.lua")
 
 -- common
 modkey     = "Mod4"
@@ -141,7 +141,7 @@ mailwidget = lain.widgets.imap({
             count = mailcount .. " "
         end
 
-        widget:set_markup(markup(gray, mail) .. count)
+        widget:set_markup(markup(blue, mail) .. count)
     end
 })
 ]]
@@ -190,6 +190,7 @@ batupd = lain.widgets.bat({
                 batbar:set_color(beautiful.fg_normal)
                 baticon:set_image(beautiful.bat)
             elseif bat_perc > 15 then
+                batbar:set_color(beautiful.fg_normal)
                 baticon:set_image(beautiful.bat_low)
             else
                 batbar:set_color("#EB8F8F")
@@ -231,7 +232,7 @@ diskwidget:set_bgimage(beautiful.widget_bg)
 
 -- ALSA volume bar
 volicon = wibox.widget.imagebox(beautiful.vol)
-volume = lain.widgets.alsabar({width = 55, ticks_size = 6,
+volume = lain.widgets.alsabar({width = 55, ticks = true, ticks_size = 6,
 settings = function()
     if volume_now.status == "off" then
         volicon:set_image(beautiful.vol_mute)
@@ -361,7 +362,7 @@ for s = 1, screen.count() do
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
-    --layout:set_middle(mytasklist[s])
+    layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
 
     mywibox[s]:set_widget(layout)

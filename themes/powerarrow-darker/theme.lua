@@ -1,5 +1,7 @@
 --[[
-                                             Powerarrow Darker Awesome WM config 2.0 github.com/copycat-killer               
+                                             
+     Powerarrow Darker Awesome WM config 2.0 
+     github.com/copycat-killer               
                                              
 --]]
 
@@ -7,11 +9,6 @@ theme                               = {}
 
 themes_dir                          = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker"
 theme.wallpaper                     = themes_dir .. "/wall.png"
--- Icons from Copland.
---
---
---
---
 
 theme.font                          = "Terminus 9"
 theme.fg_normal                     = "#DDDDFF"
@@ -19,13 +16,13 @@ theme.fg_focus                      = "#F0DFAF"
 theme.fg_urgent                     = "#CC9393"
 theme.bg_normal                     = "#1A1A1A"
 theme.bg_focus                      = "#313131"
-theme.titlebar_bg_focus             = "5C5C55#FFFFFF"
-theme.titlebar_bg_normal            = "#FFFFFF"
+theme.bg_urgent                     = "#1A1A1A"
+theme.border_width                  = "1"
 theme.border_normal                 = "#3F3F3F"
 theme.border_focus                  = "#7F7F7F"
 theme.border_marked                 = "#CC9393"
-theme.titlebar_bg_focus             = "#262626"
-theme.titlebar_bg_normal            = "#191919"
+theme.titlebar_bg_focus             = "#FFFFFF"
+theme.titlebar_bg_normal            = "#FFFFFF"
 theme.taglist_fg_focus              = "#D8D782"
 theme.tasklist_bg_focus             = "#1A1A1A"
 theme.tasklist_fg_focus             = "#D8D782"
