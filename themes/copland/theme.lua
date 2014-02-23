@@ -34,6 +34,11 @@ theme.tasklist_maximized_horizontal             = ""
 theme.tasklist_maximized_vertical               = ""
 theme.tasklist_disable_icon                     = true
 
+
+theme.arrl                          = themes_dir .. "/icons/arrl.png"
+theme.arrl_dl                       = themes_dir .. "/icons/arrl_dl.png"
+theme.arrl_ld                       = themes_dir .. "/icons/arrl_ld.png"
+
 theme.awesome_icon                              = theme.dir .."/icons/awesome.png"
 theme.menu_submenu_icon                         = theme.dir .."/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_unsel.png"
@@ -86,6 +91,23 @@ theme.titlebar_maximized_button_focus_active    = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_normal_active   = theme.dir .. "/icons/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
+theme.widget_ac                     = themes_dir .. "/icons/ac.png"
+theme.widget_battery                = themes_dir .. "/icons/battery.png"
+theme.widget_battery_low            = themes_dir .. "/icons/battery_low.png"
+theme.widget_battery_empty          = themes_dir .. "/icons/battery_empty.png"
+theme.widget_mem                    = themes_dir .. "/icons/mem.png"
+theme.widget_cpu                    = themes_dir .. "/icons/cpu.png"
+theme.widget_temp                   = themes_dir .. "/icons/temp.png"
+theme.widget_net                    = themes_dir .. "/icons/net.png"
+theme.widget_hdd                    = themes_dir .. "/icons/hdd.png"
+theme.widget_music                  = themes_dir .. "/icons/note.png"
+theme.widget_music_on               = themes_dir .. "/icons/note_on.png"
+theme.widget_vol                    = themes_dir .. "/icons/vol.png"
+theme.widget_vol_low                = themes_dir .. "/icons/vol_low.png"
+theme.widget_vol_no                 = themes_dir .. "/icons/vol_no.png"
+theme.widget_vol_mute               = themes_dir .. "/icons/vol_mute.png"
+theme.widget_mail                   = themes_dir .. "/icons/mail.png"
+theme.widget_mail_on                = themes_dir .. "/icons/mail_on.png"
 
 -- lain related
 theme.useless_gap_width                         = 10

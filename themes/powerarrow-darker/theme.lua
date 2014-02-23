@@ -1,7 +1,5 @@
 --[[
-                                             
-     Powerarrow Darker Awesome WM config 2.0 
-     github.com/copycat-killer               
+                                             Powerarrow Darker Awesome WM config 2.0 github.com/copycat-killer               
                                              
 --]]
 
@@ -26,8 +24,8 @@ theme.titlebar_bg_normal            = "#FFFFFF"
 theme.border_normal                 = "#3F3F3F"
 theme.border_focus                  = "#7F7F7F"
 theme.border_marked                 = "#CC9393"
-theme.titlebar_bg_focus             = "#5C5C55"
-theme.titlebar_bg_normal            = "#54544B"
+theme.titlebar_bg_focus             = "#262626"
+theme.titlebar_bg_normal            = "#191919"
 theme.taglist_fg_focus              = "#D8D782"
 theme.tasklist_bg_focus             = "#1A1A1A"
 theme.tasklist_fg_focus             = "#D8D782"

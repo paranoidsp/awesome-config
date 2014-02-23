@@ -89,7 +89,8 @@ run_once("xcapectrl.sh")
 os.setlocale(os.getenv("LANG"))
 
 -- beautiful init
-beautiful.init(awful.util.getdir("config") .. "/themes/powerarrow-darker/theme.lua")
+--beautiful.init(awful.util.getdir("config") .. "/themes/powerarrow-darker/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/copland/theme.lua")
 
 -- common
 modkey     = "Mod4"
@@ -880,23 +881,11 @@ client.connect_signal("manage", function (c, startup)
         awful.placement.no_overlap(c)
         awful.placement.no_offscreen(c)
     end
-    --local titlebars_enabled = true
+
+    local titlebars_enabled = true
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
-        -- Widgets that are aligned to the left
-        titlebar_left_layout = wibox.layout.fixed.horizontal()
-        titlebar_left_layout:add(awful.titlebar.widget.iconwidget(c))
-
-        -- Widgets that are aligned to the right
-        titlebar_right_layout = wibox.layout.fixed.horizontal()
-        titlebar_right_layout:add(awful.titlebar.widget.floatingbutton(c))
-        titlebar_right_layout:add(awful.titlebar.widget.maximizedbutton(c))
-        titlebar_right_layout:add(awful.titlebar.widget.stickybutton(c))
-        titlebar_right_layout:add(awful.titlebar.widget.ontopbutton(c))
-        titlebar_right_layout:add(awful.titlebar.widget.closebutton(c))
-
-        -- The title goes in the middle
-        titlebar_title = awful.titlebar.widget.titlewidget(c)
-        titlebar_title:buttons(awful.util.table.join(
+        -- buttons for the titlebar
+        local buttons = awful.util.table.join(
                 awful.button({ }, 1, function()
                     client.focus = c
                     c:raise()
@@ -907,15 +896,29 @@ client.connect_signal("manage", function (c, startup)
                     c:raise()
                     awful.mouse.client.resize(c)
                 end)
-                ))
+                )
+
+        -- Widgets that are aligned to the right
+        local right_layout = wibox.layout.fixed.horizontal()
+        right_layout:add(awful.titlebar.widget.floatingbutton(c))
+        right_layout:add(awful.titlebar.widget.maximizedbutton(c))
+        right_layout:add(awful.titlebar.widget.stickybutton(c))
+        right_layout:add(awful.titlebar.widget.ontopbutton(c))
+        right_layout:add(awful.titlebar.widget.closebutton(c))
+
+        -- The title goes in the middle
+        local middle_layout = wibox.layout.flex.horizontal()
+        local title = awful.titlebar.widget.titlewidget(c)
+        title:set_align("center")
+        middle_layout:add(title)
+        middle_layout:buttons(buttons)
 
         -- Now bring it all together
-        titlebar_layout = wibox.layout.align.horizontal()
-        titlebar_layout:set_left(titlebar_left_layout)
-        titlebar_layout:set_right(titlebar_right_layout)
-        titlebar_layout:set_middle(titlebar_title)
+        local layout = wibox.layout.align.horizontal()
+        layout:set_right(right_layout)
+        layout:set_middle(middle_layout)
 
-        awful.titlebar(c):set_widget(titlebar_layout)
+        awful.titlebar(c,{size=16}):set_widget(layout)
     end
 end)
 
